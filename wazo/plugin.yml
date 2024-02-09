@@ -1,6 +1,6 @@
 
 name: wazo-asterisk-restart
-namespace: wazo-communication
+namespace: wazocommunication
 version: 1.0.0
 author: Wazo authors
 display_name: Asterisk Restart
