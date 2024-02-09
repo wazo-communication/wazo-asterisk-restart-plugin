@@ -1,6 +1,7 @@
 # wazo-asterisk-restart-plugin
 
-Restart Asterisk every night, once no calls are active
+Restart Asterisk every night at 23:30, once no calls are active.
+If calls are remaining after 1 hour of retrying, the restart task is cancelled until the next day.
 
 ## Installation
 
