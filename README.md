@@ -6,7 +6,7 @@ If calls are remaining after 1 hour of retrying, the restart task is cancelled u
 ## Installation
 
 ```sh
-wazo-plugind-cli -c "install git https://github.com/wazo-platform/wazo-asterisk-restart-plugin"
+wazo-plugind-cli -c "install git https://github.com/wazo-communication/wazo-asterisk-restart-plugin"
 ```
 
 ## Monitoring
