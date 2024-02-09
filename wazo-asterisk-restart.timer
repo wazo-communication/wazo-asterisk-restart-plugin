@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily restart of Asterisk
+
+[Timer]
+OnCalendar=*-*-* 23:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

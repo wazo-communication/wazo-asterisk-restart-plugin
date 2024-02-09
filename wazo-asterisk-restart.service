@@ -1,0 +1,7 @@
+[Unit]
+Description=Restart Asterisk When Idle
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/wazo-asterisk-restart
+TimeoutSec=3600

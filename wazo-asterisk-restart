@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+backoff=1
+while true; do
+    if [ "$(asterisk -rx 'core show channels' | grep 'active calls' | cut -f1 -d' ')" = "0" ] ; then
+	echo "No active calls, restarting Asterisk"
+        systemctl restart asterisk
+	exit 0
+    fi
+    echo "Active calls found, sleeping"
+    if (( $backoff < 32 )) ; then
+        backoff=$(( $backoff * 2 ))
+    fi
+    echo "sleeping $backoff sec"  # REMOVEME
+    sleep $backoff
+done

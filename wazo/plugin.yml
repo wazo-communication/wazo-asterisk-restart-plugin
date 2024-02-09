@@ -1,0 +1,11 @@
+
+name: wazo-asterisk-restart
+namespace: wazo-communication
+version: 1.0.0
+author: Wazo authors
+display_name: Asterisk Restart
+min_wazo_version: 22.01
+tags:
+  - asterisk
+  - mitigation
+homepage: https://github.com/wazo-platform/wazo-asterisk-restart-plugin

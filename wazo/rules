@@ -1,0 +1,35 @@
+#!/bin/sh
+# Copyright 2024 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0+
+
+case "$1" in
+    build)
+        ;;
+
+    package)
+        mkdir -p ${pkgdir}/lib/systemd/system
+        cp wazo-asterisk-restart.timer ${pkgdir}/lib/systemd/system/wazo-asterisk-restart.timer
+        cp wazo-asterisk-restart.service ${pkgdir}/lib/systemd/system/wazo-asterisk-restart.service
+        mkdir -p ${pkgdir}/usr/bin
+        cp wazo-asterisk-restart ${pkgdir}/usr/bin/wazo-asterisk-restart
+        ;;
+
+    install)
+        systemctl daemon-reload
+        systemctl enable wazo-asterisk-restart.timer
+        systemctl start wazo-asterisk-restart.timer
+        ;;
+
+    uninstall)
+        systemctl stop wazo-asterisk-restart.timer
+        systemctl disable wazo-asterisk-restart.timer
+        rm -f /lib/systemd/system/wazo-asterisk-restart.timer
+        rm -f /lib/systemd/system/wazo-asterisk-restart.service
+        systemctl daemon-reload
+        ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
