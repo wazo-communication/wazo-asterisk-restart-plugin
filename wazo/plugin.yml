@@ -8,4 +8,4 @@ min_wazo_version: 22.01
 tags:
   - asterisk
   - mitigation
-homepage: https://github.com/wazo-platform/wazo-asterisk-restart-plugin
+homepage: https://github.com/wazo-communication/wazo-asterisk-restart-plugin
